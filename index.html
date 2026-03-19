@@ -25,26 +25,26 @@ body{background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif;o
 /* ── NAV ───────────────────────────────────── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:500;
-  padding:18px 56px;display:flex;justify-content:space-between;align-items:center;
-  transition:background .35s,padding .3s,box-shadow .35s;
+  padding:16px 56px;display:flex;justify-content:space-between;align-items:center;
+  background:rgba(253,246,240,0.97);
+  backdrop-filter:blur(14px);
+  box-shadow:0 2px 20px rgba(122,14,46,.08);
+  border-bottom:1px solid rgba(122,14,46,.07);
+  transition:padding .3s;
 }
-nav.sc{background:rgba(253,246,240,.97);backdrop-filter:blur(16px);padding:13px 56px;box-shadow:0 1px 24px rgba(122,14,46,.08);}
-.nlogo{font-family:"Bebas Neue",sans-serif;font-size:1.5rem;letter-spacing:.12em;color:var(--white);text-decoration:none;transition:color .3s;}
-nav.sc .nlogo{color:var(--berry);}
+nav.sc{padding:12px 56px;}
+.nlogo{font-family:"Bebas Neue",sans-serif;font-size:1.5rem;letter-spacing:.12em;color:var(--berry);text-decoration:none;}
 .nlinks{display:flex;gap:28px;list-style:none;}
 .nlinks a{
   font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
-  color:rgba(255,255,255,.7);text-decoration:none;position:relative;padding-bottom:3px;
+  color:var(--ink);text-decoration:none;position:relative;padding-bottom:3px;
   transition:color .2s;cursor:pointer;
 }
-nav.sc .nlinks a{color:var(--ink);}
 .nlinks a::after{content:"";position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--berry);transition:width .3s;}
-.nlinks a:hover{color:var(--pink);}
-nav.sc .nlinks a:hover{color:var(--berry);}
+.nlinks a:hover{color:var(--berry);}
 .nlinks a:hover::after{width:100%;}
 .ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
-.ham span{width:22px;height:1.5px;background:var(--white);display:block;transition:background .3s;}
-nav.sc .ham span{background:var(--berry);}
+.ham span{width:22px;height:1.5px;background:var(--berry);display:block;}
 .mmenu{display:none;position:fixed;inset:0;background:var(--berry);z-index:600;flex-direction:column;justify-content:center;align-items:center;gap:24px;}
 .mmenu.open{display:flex;}
 .mmenu a{font-family:"Bebas Neue",sans-serif;font-size:2.6rem;color:var(--white);text-decoration:none;letter-spacing:.1em;transition:color .2s;cursor:pointer;}
@@ -168,7 +168,7 @@ section{padding:88px 56px;}
 .divider{height:1px;background:var(--border);margin:0 56px;}
 
 /* REVEAL — visible by default, animates in */
-.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease;}
+.rv{opacity:1;transform:none;}
 .rv.on{opacity:1;transform:none;}
 .d1{transition-delay:.07s;}.d2{transition-delay:.14s;}
 .d3{transition-delay:.21s;}.d4{transition-delay:.28s;}.d5{transition-delay:.35s;}
@@ -184,7 +184,7 @@ section{padding:88px 56px;}
 }
 .pol-frame:hover{transform:rotate(0deg) scale(1.02);}
 .pol-img{aspect-ratio:3/4;overflow:hidden;background:var(--blush);}
-.pol-img img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;}
+.pol-img img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;}
 .pol-cap{font-family:"Caveat",cursive;font-size:1.05rem;color:var(--berry);text-align:center;margin-top:8px;}
 .sticky{
   position:absolute;top:-20px;right:-24px;
@@ -277,7 +277,7 @@ section{padding:88px 56px;}
 .eco{font-size:.76rem;color:rgba(255,255,255,.36);margin-bottom:12px;font-style:italic;}
 .eul{list-style:none;}
 .eul li{font-size:.76rem;color:rgba(255,255,255,.5);padding-left:14px;position:relative;margin-bottom:4px;line-height:1.65;}
-.eul li::before{content:"→";position:absolute;left:0;color:var(--pink);font-size:.68rem;top:1px;}
+.eul li::before{content:"-";position:absolute;left:0;color:var(--pink);font-size:.78rem;top:0px;}
 
 /* ── CERTIFICATIONS ───────────────────────────────── */
 #certifications{background:var(--cream);}
@@ -327,12 +327,13 @@ footer{background:var(--ink);padding:18px 56px;border-top:1px solid rgba(255,255
 /* RESPONSIVE */
 @media(max-width:1100px){.pillars{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:900px){
+  .hero-photo img{height:46vh;width:auto;}
   section{padding:68px 28px;}
   nav{padding:16px 28px;}nav.sc{padding:12px 28px;}
   .nlinks{display:none;}.ham{display:flex;}
-  #hero{grid-template-columns:1fr;}
-  .hero-left{padding:110px 28px 90px;}
-  .hero-right{display:none;}
+  #hero{grid-template-columns:1fr;grid-template-rows:auto auto;}
+  .hero-left{padding:110px 28px 20px;}
+  .hero-right{display:flex;height:55vh;order:-1;margin-top:80px;justify-content:center;align-items:flex-end;}.hero-photo img{height:52vh;width:auto;max-width:85%;object-fit:contain;object-position:bottom center;filter:drop-shadow(0 -10px 30px rgba(0,0,0,.3));}
   .about-layout,.egrid,.cgrd{grid-template-columns:1fr;gap:36px;}
   .pgrid{grid-template-columns:1fr;}
   .cgrid{grid-template-columns:1fr 1fr;}
@@ -356,25 +357,25 @@ footer{background:var(--ink);padding:18px 56px;border-top:1px solid rgba(255,255
 <div class="cr2" id="cr2"></div>
 
 <nav id="nav">
-  <a class="nlogo" href="#" onclick="sTo('hero');return false;">SMD</a>
+  <a class="nlogo" onclick="window.scrollTo({top:0,behavior:'smooth'})">SMD</a>
   <ul class="nlinks">
-    <li><a onclick="sTo('about')">About</a></li>
-    <li><a onclick="sTo('skills')">Skills</a></li>
-    <li><a onclick="sTo('projects')">Projects</a></li>
-    <li><a onclick="sTo('experience')">Experience</a></li>
-    <li><a onclick="sTo('certifications')">Certifications</a></li>
-    <li><a onclick="sTo('contact')">Contact</a></li>
+    <li><a href="#about" onclick="sTo('about');return false;">About</a></li>
+    <li><a href="#skills" onclick="sTo('skills');return false;">Skills</a></li>
+    <li><a href="#projects" onclick="sTo('projects');return false;">Projects</a></li>
+    <li><a href="#experience" onclick="sTo('experience');return false;">Experience</a></li>
+    <li><a href="#certifications" onclick="sTo('certifications');return false;">Certifications</a></li>
+    <li><a href="#contact" onclick="sTo('contact');return false;">Contact</a></li>
   </ul>
   <button class="ham" id="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
 <div class="mmenu" id="mm">
   <button class="mmx" onclick="toggleMenu()">✕</button>
-  <a onclick="sTo('about');toggleMenu()">About</a>
-  <a onclick="sTo('skills');toggleMenu()">Skills</a>
-  <a onclick="sTo('projects');toggleMenu()">Projects</a>
-  <a onclick="sTo('experience');toggleMenu()">Experience</a>
-  <a onclick="sTo('certifications');toggleMenu()">Certifications</a>
-  <a onclick="sTo('contact');toggleMenu()">Contact</a>
+  <a href="#about" onclick="sTo('about');toggleMenu();return false;">About</a>
+  <a href="#skills" onclick="sTo('skills');toggleMenu();return false;">Skills</a>
+  <a href="#projects" onclick="sTo('projects');toggleMenu();return false;">Projects</a>
+  <a href="#experience" onclick="sTo('experience');toggleMenu();return false;">Experience</a>
+  <a href="#certifications" onclick="sTo('certifications');toggleMenu();return false;">Certifications</a>
+  <a href="#contact" onclick="sTo('contact');toggleMenu();return false;">Contact</a>
 </div>
 
 <!-- HERO -->
@@ -393,7 +394,7 @@ footer{background:var(--ink);padding:18px 56px;border-top:1px solid rgba(255,255
       <button class="hbtn hbtn-out" onclick="sTo('contact')">GET IN TOUCH</button>
     </div>
     <div class="hero-social">
-      <a href="mailto:sandaruvidiass@gmail.com" target="_blank" rel="noopener">Email</a>
+      <a href="/cdn-cgi/l/email-protection#92e1f3fcf6f3e0e7e4fbf6fbf3e1e1d2f5fff3fbfebcf1fdff" target="_blank" rel="noopener">Email</a>
       <a href="https://lk.linkedin.com/in/sandaruvi-methvindi-dias-967238333" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
@@ -420,7 +421,7 @@ footer{background:var(--ink);padding:18px 56px;border-top:1px solid rgba(255,255
         <div class="pol-cap">Sandaruvi M. Dias ♡</div>
       </div>
       <div class="sticky">Currently building cool things @ ABI Systems 🌟</div>
-      <div class="pol-scribble">Sri Lanka 🇱🇰 • 2026</div>
+      <div class="pol-scribble">Sri Lanka • 2026</div>
     </div>
     <div>
       <p class="about-bigquote rv d1">"Passionate about crafting <em>intuitive</em> and visually appealing digital experiences."</p>
@@ -515,7 +516,7 @@ footer{background:var(--ink);padding:18px 56px;border-top:1px solid rgba(255,255
       <h2 class="sh rv d1">LET'S BUILD<br>SOMETHING <em>Great</em></h2>
       <p class="ctag rv d2">Open to exciting opportunities, collaborations, and conversations. Don't hesitate to reach out!</p>
       <div class="clist">
-        <a href="mailto:sandaruvidiass@gmail.com" class="ci rv d2" target="_blank" rel="noopener"><div class="ci-ic">✉️</div><div><div class="ci-lbl">Email</div><div class="ci-val">sandaruvidiass@gmail.com</div></div></a>
+        <a href="/cdn-cgi/l/email-protection#6112000f050013141708050800121221060c00080d4f020e0c" class="ci rv d2" target="_blank" rel="noopener"><div class="ci-ic">✉️</div><div><div class="ci-lbl">Email</div><div class="ci-val"><span class="__cf_email__" data-cfemail="0172606f656073747768656860727241666c60686d2f626e6c">[email&#160;protected]</span></div></div></a>
         <a href="tel:+94712242399" class="ci rv d3"><div class="ci-ic">📞</div><div><div class="ci-lbl">Phone</div><div class="ci-val">+94 71 2242 399</div></div></a>
         <a href="https://lk.linkedin.com/in/sandaruvi-methvindi-dias-967238333" class="ci rv d4" target="_blank" rel="noopener"><div class="ci-ic">🔗</div><div><div class="ci-lbl">LinkedIn</div><div class="ci-val">Sandaruvi Methvindi Dias</div></div></a>
         <div class="ci rv d5"><div class="ci-ic">📍</div><div><div class="ci-lbl">Location</div><div class="ci-val">Matara, Sri Lanka</div></div></div>
@@ -530,11 +531,17 @@ footer{background:var(--ink);padding:18px 56px;border-top:1px solid rgba(255,255
   <button class="ftop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ BACK TO TOP</button>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // smooth scroll helper
 function sTo(id){
-  var el=document.getElementById(id);
-  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  try {
+    var el=document.getElementById(id);
+    if(el){
+      var top=el.getBoundingClientRect().top+window.pageYOffset-60;
+      window.scrollTo({top:top,behavior:'smooth'});
+    }
+  } catch(e){}
+  return false;
 }
 
 // cursor
@@ -561,16 +568,4 @@ function doReveal(){
 }
 window.addEventListener('scroll',doReveal,{passive:true});
 window.addEventListener('resize',doReveal);
-// fire immediately and multiple times on load to catch everything
-doReveal();
-setTimeout(doReveal,100);
-setTimeout(doReveal,300);
-setTimeout(doReveal,600);
-setTimeout(doReveal,1000);
-setTimeout(doReveal,2000);
-
-// mobile menu
-function toggleMenu(){document.getElementById('mm').classList.toggle('open');}
-</script>
-</body>
-</html>
+// fire immediately and multipl
